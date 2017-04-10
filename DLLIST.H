@@ -3,7 +3,7 @@ typedef char ListEntry;
 typedef struct listnode {
 	ListEntry entry;
 	struct listnode *next;
-	struct listnode *next;
+	struct listnode *prev;
 } ListNode;
 typedef int Position;
 typedef struct list {
