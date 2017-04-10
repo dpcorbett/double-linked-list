@@ -24,3 +24,25 @@ ListNode *MakeListNode(ListEntry x) {
 	}
 	return p;
 }
+// Clear list of nodes from start to finish.
+void ClearList(List *list) {
+	ListNode *temp;
+	// Return to start of list.
+	while ((list->current)->prev) {
+		list->current = (list->current)->prev;
+	}
+	// Clear nodes until there is only one left.
+	while (list->current != NULL) {
+		temp = list->current;
+		list->current = (list->current)->next;
+		free(temp);
+	}
+	list->count = 0;
+	list->CurrentPos = 0;
+	free(list);
+	CreateList(list);
+}
+// Returns false if list contains nodes.
+Boolean ListEmpty(const List *list) {
+	return (list->count == 0);
+}
